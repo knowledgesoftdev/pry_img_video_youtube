@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Videos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generador de Videos</h1>
+
+        <form id="uploadForm" class="card">
+            <!-- Selector de tipo de medio -->
+            <div class="form-group">
+                <label for="mediaType">Tipo de medio:</label>
+                <select id="mediaType" name="mediaType" class="form-select">
+                    <option value="image">Imagenes</option>
+                    <option value="video">Videos</option>
+                </select>
+            </div>
+
+            <!-- Input file que cambiará según el tipo seleccionado -->
+            <div class="form-group">
+                <label for="mediaFile">Subir archivo de Video:</label>
+                <input type="file" id="mediaFile" name="mediaFile" accept="video/mp4" required>
+            </div>
+
+            <!-- Selector de orientación -->
+            <div class="form-group">
+                <label for="orientation">Orientación:</label>
+                <select id="orientation" name="orientation" class="form-select">
+                    <option value="vertical">Vertical (9:16)</option>
+                    <option value="horizontal">Horizontal (16:9)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="script">Guion:</label>
+                <textarea id="script" name="script" required></textarea>
+            </div>
+
+            <!-- Vista previa 
+            <div class="form-group preview-container" style="display: none;">
+                <label>Vista previa:</label>
+                <div id="mediaPreview"></div>
+            </div>-->
+
+            <button type="submit">Generar Video</button>
+        </form>
+
+        <div class="card">
+            <h2>Monitor de Procesos</h2><br>
+            <div id="logs" class="logs-container"></div>
+        </div>
+
+        <div class="card">
+            <h2>Estado Actual</h2><br>
+            <div id="statusMessage" class="status"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
