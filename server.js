@@ -6,7 +6,8 @@ const ffmpeg = require('fluent-ffmpeg');
 const path = require('path');
 const fs = require('fs');
 const { main } = require('./indexImagenes');
-const { mainVideos } = require('./indexVideos');
+//const { mainVideos } = require('./indexVideos');
+const { mainVideosLargos } = require('./indexVideosLargos')
 
 const app = express();
 const server = http.createServer(app);
@@ -98,7 +99,7 @@ app.post('/subir', upload.single('video'), async (req, res) => {
         await convertMP4ToMP3(inputPath);
         logToClient('✅ Conversión finalizada. Generando video...');
         if (mediaType === 'video') {
-            await mainVideos(script, io, { orientation });
+            await mainVideosLargos(script, io, { orientation });
         } else {
             await main(script, io, {
                 orientation,
