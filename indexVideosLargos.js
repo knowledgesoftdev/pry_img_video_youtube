@@ -50,6 +50,9 @@ function limpiarArchivosTemporales() {
     ];
     const archivosAEliminar = [
         path.join(__dirname, 'videos.txt'),
+        path.join(__dirname, 'videos_temporales.txt'),
+        path.join(__dirname, 'videos_transiciones.txt'),
+
     ];
 
     // Eliminar archivos
@@ -216,13 +219,13 @@ function generarPrompts(shorts) {
         'Desert vista at golden hour'
     ];
 
-    const promptsSuperacion = [
+    /*const promptsSuperacion = [
         'Motivational speech background',
         'Inspirational sunrise scene',
         'Success journey visualization',
         'Overcoming challenges illustration',
         'Path to victory symbolism'
-    ];
+    ];*/
 
     const promptsBox = [
         'Boxing training montage',
